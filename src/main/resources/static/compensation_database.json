@@ -14,8 +14,8 @@
         }
         ]
     },
-    "compensation" : "A Whole Bunch",
-    "startDate" : "Way back when"
+    "salary" : "A Whole Bunch",
+    "effectiveDate" : "Way back when"
   }
   ,
   { "employee" : {
@@ -25,8 +25,8 @@
       "position" : "Developer I",
       "department" : "Engineering"
     },
-    "compensation": "A lot more",
-    "startDate" : "half-past never"
+    "salary": "A lot more",
+    "effectiveDate" : "half-past never"
   }
   ,
   {"employee" : {
@@ -44,8 +44,8 @@
         }
       ]
     },
-    "compensation" : "it is impolite to ask",
-    "startDate" : "perpetually tomorrow"
+    "salary" : "it is impolite to ask",
+    "effectiveDate" : "perpetually tomorrow"
   }
   ,
   { "employee": {
@@ -55,8 +55,8 @@
       "position" : "Developer II",
       "department" : "Engineering"
     },
-      "compensation" : "less than you'd hope",
-      "startDate" : "Just before"
+      "salary" : "less than you'd hope",
+      "effectiveDate" : "Just before"
   }
   ,
   {"employee" : {
@@ -66,7 +66,7 @@
       "position" : "Developer III",
       "department" : "Engineering"
     },
-    "compensation" : "more than you'd think",
-    "startDate" : "since then"
+    "salary" : "more than you'd think",
+    "effectiveDate" : "since then"
   }
 ]
