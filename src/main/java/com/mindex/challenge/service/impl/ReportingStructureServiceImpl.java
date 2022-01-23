@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.UUID;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ReportingStructureServiceImpl implements ReportingStructureService {
@@ -21,21 +22,17 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    @Overload
+	private ArrayList<String> employeeListToEmployeeIDs(List<Employee> employees )
+	{
+		ArrayList<String> employeeIds = new ArrayList<String>();
+		for(Employee employee : employees)
+		{
+			employeeIds.add(employee.getEmployeeId());
+		}
+		return employeeIds;
+	}
+
     private int numberOfReportingIds(String top_id){
-	    //While[newids.size > 0]
-	    //	old_ids, prev_ids, new_ids
-	    //	prev_ids = new_ids
-	    //	clear new_ids
-	    //	for id in prev_ids
-	    //		reporters = getemployee(ids).getreporters()
-	    //		for reporter in reporters
-	    //			if reporter is not in old_ids
-	    //				new_ids += reporter
-	    //				old_ids += reporter
-	    //
-	    //return old_ids.size() - 1 (because I should probably include the original id from the get-go 
-	    // to save a small amount of iterations :) )
 	    ArrayList<String> old_ids = new ArrayList<String>();
 	    ArrayList<String> prev_ids = new ArrayList<String>();
 	    ArrayList<String> new_ids = new ArrayList<String>();
@@ -46,22 +43,28 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
 	    while(new_ids.size() > 0)
 	    {
 		    prev_ids.clear();
-		    prev_ids.addAll(new_ids)
+		    prev_ids.addAll(new_ids);
 		    new_ids.clear();
 		    for(String id : prev_ids)
 		    {
 			    reporters.clear();
-			    reporters.addAll(Arrays.asList(employeeRepository.findByEmployeeId(id).getDirectReports()));
-			    //should also take into account that the ids may not be real employees...
-			    //This may result in an error as null does not have 'getDirectReports' functionality
-			    for(String reporter : reporters)
-			    {
-				    if(!old_ids.contains(reporter))
-				    {
-					    old_ids.add(reporter);
-					    new_ids.add(reporter);
-				    }
-			    }
+				LOG.debug("id: [{}]", id);
+				try
+				{
+					reporters.addAll(employeeListToEmployeeIDs(employeeRepository.findByEmployeeId(id).getDirectReports()));
+			    	for(String reporter : reporters)
+			    	{
+				    	if(!old_ids.contains(reporter))
+				    	{
+					    	old_ids.add(reporter);
+							new_ids.add(reporter);
+				    	}
+			    	}
+				}
+				catch (Exception e)
+				{
+
+				}
 		    }
 	    }
 	    return old_ids.size() - 1;
@@ -79,8 +82,8 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
 	}
 
 	ReportingStructure reportingStructure = new ReportingStructure();
-	reportingStructure.setEmployeeId(id);
-	reportingStructure.setNumberOfReports(numberOfReportingIds(ids))
+	reportingStructure.setEmployee(employee);
+	reportingStructure.setNumberOfReports(numberOfReportingIds(id));
 
 
         return reportingStructure;

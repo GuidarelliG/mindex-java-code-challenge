@@ -12,7 +12,7 @@ public class ReportingStructureController {
     private static final Logger LOG = LoggerFactory.getLogger(ReportingStructureController.class);
 
     @Autowired
-    private ReportingStructureService reportingStuctureService;
+    private ReportingStructureService reportingStructureService;
 
 
     @GetMapping("/reporting/{id}")
