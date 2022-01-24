@@ -21,7 +21,7 @@ public class CompensationServiceImpl implements CompensationService {
     public Compensation create(Compensation compensation) {
         LOG.debug("Creating employee [{}]", compensation);
 
-        CompensationRepository.insert(compensation);
+        compensationRepository.insert(compensation);
 
         return compensation;
     }
@@ -29,11 +29,10 @@ public class CompensationServiceImpl implements CompensationService {
     @Override
     public Compensation read(String id) {
         LOG.debug("Finding Compensation for id: [{}]", id);
-
-        Compensation compensation = CompensationRepository.findByEmployeeId(id);
+        Compensation compensation = compensationRepository.findByCid(id);
 
         if (compensation == null) {
-            throw new RuntimeException("Invalid employeeId: " + id);
+            throw new RuntimeException("Invalid cid: " + id);
         }
 
         return compensation;

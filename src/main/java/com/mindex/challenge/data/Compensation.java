@@ -3,6 +3,7 @@ package com.mindex.challenge.data;
 import java.util.List;
 
 public class Compensation {
+    private String cid;
     private Employee employee;
     private String salary;
     private String effectiveDate;
@@ -10,6 +11,9 @@ public class Compensation {
     public Compensation() {
     }
 
+    public void setId(String cid){
+        this.cid = cid;
+    }
 
     public void setEmployee(Employee employee) {
         this.employee = employee;

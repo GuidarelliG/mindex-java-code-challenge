@@ -2,6 +2,7 @@ package com.mindex.challenge;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mindex.challenge.data.Employee;
+import com.mindex.challenge.data.Compensation;
 import com.mindex.challenge.dao.EmployeeRepository;
 import com.mindex.challenge.dao.CompensationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +46,10 @@ public class DataBootstrap {
 	//LOADING COMPENSATIONS 
 	inputStream = this.getClass().getResourceAsStream(DATASTORE_LOCATION_COMP);
 
-        Compensations[] compensations = null;
+        Compensation[] compensations = null;
 
         try {
-            compensations = objectMapper.readValue(inputStream, Compensations[].class);
+            compensations = objectMapper.readValue(inputStream, Compensation[].class);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
