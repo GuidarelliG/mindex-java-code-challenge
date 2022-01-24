@@ -10,6 +10,18 @@ public class Compensation {
     public Compensation() {
     }
 
+    public String getId(){
+        return this.employeeId;
+    }
+
+    public String getSalary() {
+        return this.salary;
+    }
+
+    public String getEffectiveDate() {
+        return this.effectiveDate;
+    }
+
     public void setId(String employeeId){
         this.employeeId = employeeId;
     }

@@ -1,25 +1,25 @@
 [
-  { "employeeId" : "1",
+  { "id" : "1",
     "salary" : "A Whole Bunch",
     "effectiveDate" : "Way back when"
   }
   ,
-  { "employeeId" : "2",
+  { "id" : "2",
     "salary": "A lot more",
     "effectiveDate" : "half-past never"
   }
   ,
-  {"employeeId" : "3",
+  {"id" : "3",
     "salary" : "it is impolite to ask",
     "effectiveDate" : "perpetually tomorrow"
   }
   ,
-  { "employeeId" : "4",
+  { "id" : "4",
       "salary" : "less than you'd hope",
       "effectiveDate" : "Just before"
   }
   ,
-  { "employeeId":"5",
+  { "id":"5",
     "salary" : "more than you'd think",
     "effectiveDate" : "since then"
   }
