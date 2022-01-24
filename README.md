@@ -30,6 +30,16 @@ The following endpoints are available to use:
    * HTTP Method: GET
    * URL: localhost:8080/reporting/{id}
    * RESPONCE: ReportingStructure
+***TASK 2***
+* READ
+   * HTTP Method: GET
+   * URL: localhost:8080/compensation/{id}
+   * RESPONCE: Compensation
+* CREATE
+   * HTTP Method: POST
+   * URL: localhost:8080/Compensation
+   * PAYLOAD: Compensation [Note!! employeeId should just be id in json input]
+   * RESPONCE: Compensation
 ```
 The Employee has a JSON schema of:
 ```json
