@@ -28,11 +28,11 @@ public class CompensationServiceImpl implements CompensationService {
 
     @Override
     public Compensation read(String id) {
-        LOG.debug("Finding Compensation for id: [{}]", id);
+        LOG.debug("Finding Compensation for employeeId: [{}]", id);
         Compensation compensation = compensationRepository.findByCid(id);
 
         if (compensation == null) {
-            throw new RuntimeException("Invalid cid: " + id);
+            throw new RuntimeException("Invalid employeeId: " + id);
         }
 
         return compensation;
