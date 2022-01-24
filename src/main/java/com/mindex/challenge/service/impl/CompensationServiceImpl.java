@@ -29,7 +29,7 @@ public class CompensationServiceImpl implements CompensationService {
     @Override
     public Compensation read(String id) {
         LOG.debug("Finding Compensation for employeeId: [{}]", id);
-        Compensation compensation = compensationRepository.findByCid(id);
+        Compensation compensation = compensationRepository.findByEmployeeId(id);
 
         if (compensation == null) {
             throw new RuntimeException("Invalid employeeId: " + id);
